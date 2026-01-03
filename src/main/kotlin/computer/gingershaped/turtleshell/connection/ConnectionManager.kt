@@ -75,7 +75,7 @@ class ConnectionManager(
                     append(Ansi.CSI + "1m")
                     append("Run this command on your CC computer to connect:\r\n")
                     append(Ansi.CSI + "0m")
-                    append("    wget run ${URLBuilder(address).apply { path("/client") }} ${uuid}\r\n")
+                    append("    wget run ${URLBuilder(address).apply { appendPathSegments(listOf("client")) }} ${uuid}\r\n")
                 }.encodeToByteArray()
             )
             val socketTask = async {
