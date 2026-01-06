@@ -59,7 +59,7 @@ fun main() {
 
     val socketAddress = URLBuilder(config.http.addressUrl).apply {
         set(scheme = if (protocol.name == "http") { "ws" } else { "wss" })
-        path("ws")
+        appendPathSegments(listOf("ws"))
     }.buildString()
     val clientLua = Unit.javaClass.getResourceAsStream("/client.lua")!!
         .reader().use { it.readText() }
