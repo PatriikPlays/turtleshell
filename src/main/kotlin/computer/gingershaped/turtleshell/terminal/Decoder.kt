@@ -72,6 +72,36 @@ fun CoroutineScope.generateInputs(stdin: ReceiveChannel<Char>) = produce {
                             ))
                             listOf()
                         }
+                        'H' -> {
+                            listOf(GLFW.HOME)
+                        }
+                        'F' -> {
+                            listOf(GLFW.END)
+                        }
+                        '3' -> {
+                            val nextChar = stdin.receive()
+                            if (nextChar == '~') {
+                                listOf(GLFW.DELETE)
+                            } else {
+                                listOf()
+                            }
+                        }
+                        '5' -> {
+                            val nextChar = stdin.receive()
+                            if (nextChar == '~') {
+                                listOf(GLFW.PAGE_UP)
+                            } else {
+                                listOf()
+                            }
+                        }
+                        '6' -> {
+                            val nextChar = stdin.receive()
+                            if (nextChar == '~') {
+                                listOf(GLFW.PAGE_DOWN)
+                            } else {
+                                listOf()
+                            }
+                        }
                         else -> listOf()
                     }
                     else -> listOf(GLFW.ESCAPE)

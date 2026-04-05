@@ -51,6 +51,7 @@ class Host {
                 const env = new LuaTable();
                 env.set("_TURTLESHELL_SESSION", id);
                 env.set("_TURTLESHELL_SOCKET", this.socketId);
+                env.set("shell", shell);
                 term.setBackgroundColor(colors.black);
                 term.setTextColor(colors.yellow);
                 print("To open more SSH sessions, run:");
